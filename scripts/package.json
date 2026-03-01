@@ -1,0 +1,13 @@
+{
+  "name": "deedflow-migration-scripts",
+  "version": "1.0.0",
+  "description": "RamadanFlow v3 SQLite → DeedFlow PostgreSQL migration",
+  "scripts": {
+    "migrate": "node migrate-v3.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "dotenv": "^17.3.1",
+    "pg": "^8.13.1"
+  }
+}

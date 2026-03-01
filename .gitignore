@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+dist/
+
+# Environment
+.env
+*.env.local
+
+# Database files (v3 legacy)
+*.db
+*.db-wal
+*.db-shm
+data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo

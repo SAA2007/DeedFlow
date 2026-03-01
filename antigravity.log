@@ -1,0 +1,34 @@
+# DeedFlow — Antigravity Log
+
+## 2026-03-02T02:30:00+03:00 — Phase 0: Project Scaffold
+
+### Phase: EXECUTION
+### Actions:
+- Scaffolded Vite + React project via `npx create-vite@latest`
+- Installed Tailwind CSS v4 (`tailwindcss` + `@tailwindcss/vite`)
+- Created `vite.config.js` — React + Tailwind plugins, `/api` proxy to port 3001
+- Created `index.html` — PWA meta, Inter font, viewport-fit cover
+- Created `src/index.css` — Tailwind v4 design tokens (emerald, dark surfaces, amber accent)
+- Created `src/App.jsx` — App shell with gradient branding, quick actions, tab content
+- Created `src/components/BottomNav.jsx` — iOS-safe bottom nav
+- Created `public/manifest.json` — PWA manifest
+- Created `public/sw.js` — Service worker (cache shell, network-first API)
+- Created `public/icon.svg` — SVG favicon
+- Created `server/package.json` — Express + pg dependencies
+- Created `server/index.js` — Express scaffold with health check
+- Created `server/db/index.js` — pg.Pool connection
+- Created `server/db/schema.sql` — 18-table PostgreSQL schema
+- Created `server/db/migrate.js` — Schema migration runner
+- Created `scripts/migrate-v3.js` — SQLite → Postgres data migration
+- Created `scripts/package.json` — Migration script dependencies
+- Created `setup-postgres.sh` — Pi Postgres setup automation
+- Created `.gitignore`, `.env.example`, `server/.env.example`
+
+### Files Created: 19 new files
+### Files Modified: 3 (vite.config.js, index.html, .gitignore overwritten from Vite defaults)
+### Verification:
+- ✅ Vite dev server starts successfully (744ms)
+- ✅ Frontend renders correctly in browser (dark theme, branding, quick actions, bottom nav)
+- ⏳ Backend/migration require PostgreSQL (test on Pi)
+### Warnings: None
+### Uncertainties: None

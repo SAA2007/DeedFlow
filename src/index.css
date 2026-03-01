@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DeedFlow Design Tokens
+   ============================================================ */
+
+@theme {
+  /* Emerald-based primary palette */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+
+  /* Dark surface palette */
+  --color-surface-50: #f8fafc;
+  --color-surface-100: #f1f5f9;
+  --color-surface-200: #e2e8f0;
+  --color-surface-300: #cbd5e1;
+  --color-surface-400: #94a3b8;
+  --color-surface-500: #64748b;
+  --color-surface-600: #475569;
+  --color-surface-700: #334155;
+  --color-surface-800: #1e293b;
+  --color-surface-900: #0f172a;
+  --color-surface-950: #020617;
+
+  /* Accent — warm amber for gamification highlights */
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  /* Font */
+  --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Bottom nav height */
+  --spacing-nav: 4rem;
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+html {
+  font-family: var(--font-family-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-surface-950 text-surface-100 min-h-dvh antialiased;
+  padding-bottom: calc(var(--spacing-nav) + env(safe-area-inset-bottom, 0px));
+}
+
+/* ============================================================
+   Scrollbar (dark themed)
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-600);
+  border-radius: 3px;
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+
+/* Glass card */
+.glass {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* Glow ring on focus */
+.focus-ring {
+  @apply outline-none ring-2 ring-primary-500/40 ring-offset-2 ring-offset-surface-950;
+}
+
+/* Tap target enforcement */
+.tap-target {
+  min-width: 44px;
+  min-height: 44px;
+}
