@@ -157,13 +157,13 @@ if ! command -v pm2 &> /dev/null; then
   sudo npm install -g pm2
 fi
 
-# Create ecosystem config
-cat > "$DEPLOY_DIR/ecosystem.config.js" <<'EOPM2'
+# Create ecosystem config (.cjs because package.json has "type": "module")
+cat > "$DEPLOY_DIR/ecosystem.config.cjs" <<'EOPM2'
 module.exports = {
   apps: [{
     name: 'deedflow',
-    script: 'server/index.js',
-    cwd: __dirname,
+    script: 'index.js',
+    cwd: __dirname + '/server',
     instances: 1,
     exec_mode: 'fork',
     env: {
@@ -171,8 +171,8 @@ module.exports = {
     },
     max_memory_restart: '200M',
     log_date_format: 'YYYY-MM-DD HH:mm:ss',
-    error_file: './logs/error.log',
-    out_file: './logs/out.log',
+    error_file: '../logs/error.log',
+    out_file: '../logs/out.log',
     merge_logs: true,
   }]
 }
@@ -184,7 +184,7 @@ mkdir -p "$DEPLOY_DIR/logs"
 pm2 delete deedflow 2>/dev/null || true
 
 cd "$DEPLOY_DIR"
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.cjs
 pm2 save
 
 echo -e "${GREEN}✓${NC} DeedFlow running via PM2 on port ${APP_PORT}"
